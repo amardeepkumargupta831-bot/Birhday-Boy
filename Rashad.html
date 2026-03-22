@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RASHAD HUSSAIN | ROYAL CELEBRATION</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #d4af37; --dark: #020617; }
+        body, html { margin: 0; padding: 0; height: 100%; width: 100%; background: var(--dark); color: white; font-family: 'Poppins', sans-serif; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .sky { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at bottom, #1e293b 0%, #020617 100%); z-index: 0; }
+        .glass { position: relative; z-index: 10; width: 90%; max-width: 800px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; padding: 40px; text-align: center; max-height: 85vh; overflow-y: auto; box-shadow: 0 50px 100px rgba(0,0,0,0.8); }
+        .jaan { font-family: 'Great Vibes', cursive; font-size: 4rem; color: #fff; display: block; margin: -10px 0; }
+        .cake-box { position: relative; width: 160px; height: 260px; margin: 30px auto; cursor: pointer; }
+        .candle { font-size: 3rem; position: absolute; top: -45px; left: 38%; z-index: 5; transition: 0.3s; }
+        .candle.off { opacity: 0.3; transform: rotate(-20deg); pointer-events: none; }
+        .layer { width: 100%; height: 22px; background: #fff; border-bottom: 1px solid #ddd; border-radius: 100px / 10px; margin-top: -10px; }
+        .top { width: 100%; height: 50px; background: #fff; border-radius: 100px / 25px; z-index: 2; position: relative; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+        .frame { background: white; padding: 10px 10px 35px 10px; border: 1px solid var(--gold); transform: rotate(var(--r)); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .frame img { width: 100%; height: 250px; object-fit: cover; display: block; background: #111; }
+        .card { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 1px dashed var(--gold); line-height: 1.8; margin-top: 20px; }
+        .btn { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 15px 40px; font-family: 'Orbitron'; cursor: pointer; margin-top: 20px; transition: 0.4s; letter-spacing: 2px; text-transform: uppercase; }
+        .btn:hover { background: var(--gold); color: black; box-shadow: 0 0 20px var(--gold); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="sky"></div>
+    <audio id="music" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+    <div class="glass">
+        <div id="p1">
+            <h1 style="font-family: 'Orbitron'; font-size: 2.5rem; margin: 10px 0;">HAPPY BIRTHDAY</h1>
+            <span class="jaan">Meri Jaan</span>
+            <div style="font-family: 'Orbitron'; color: var(--gold); font-size: 1.2rem; letter-spacing: 5px;">RASHAD HUSSAIN</div>
+            
+            <div class="cake-box">
+                <div class="candle" id="cndl" onclick="blow()">🕯️</div>
+                <div class="top" onclick="cut()"></div>
+                <div class="layer"></div><div class="layer"></div><div class="layer"></div><div class="layer"></div>
+            </div>
+            <p id="hint" style="font-size: 0.7rem; letter-spacing: 2px; color: var(--gold);">TAP THE CANDLE TO BEGIN</p>
+        </div>
+
+        <div id="p2" class="hidden">
+            <div style="font-family: 'Orbitron'; color: var(--gold); margin-bottom: 15px;">MEMORIES COLLECTION</div>
+            <div class="grid">
+                <div class="frame" style="--r:-3deg;"><img src="1.jpg" onerror="this.src='1'"></div>
+                <div class="frame" style="--r:3deg;"><img src="2.jpg" onerror="this.src='2'"></div>
+                <div class="frame" style="--r:-2deg;"><img src="3.jpg" onerror="this.src='3'"></div>
+                <div class="frame" style="--r:4deg;"><img src="4.jpg" onerror="this.src='4'"></div>
+                <div class="frame" style="--r:0deg; grid-column: span 2;"><img src="5.jpg" onerror="this.src='5'" style="height: 350px;"></div>
+            </div>
+            <button class="btn" onclick="next('p3')">Final Message ➔</button>
+        </div>
+
+        <div id="p3" class="hidden">
+            <span class="jaan" style="font-size: 3rem;">Dua & Blessings</span>
+            <div class="card">
+                <strong style="color: var(--gold);">Assalamu Alaikum Rashad Hussain,</strong><br><br>
+                Allah Tala aapki zindagi ko khushiyon se bhar de. Aap mere liye meri puri duniya ho. Aapka matured nature aur wo sweet voice mere din ko hamesha roshan kar deti hai. Happy Birthday! ❤️
+            </div>
+            <button class="btn" onclick="next('p4')">From Ayush ➔</button>
+        </div>
+
+        <div id="p4" class="hidden">
+            <span class="jaan" style="font-size: 3.5rem;">For My GOAT</span>
+            <div class="card" style="color: #b3e5fc; font-style: italic; text-align: center; border-color: #fff;">
+                Hey Rashad Hussain,
+
+Happy Birthday! 🎉
+
+I just wanted to take a moment to tell you how special you are to me. Being your bench partner is honestly one of the best parts of my day. From our random talks to all the laughs we share, every moment with you feels so easy and comfortable.
+
+You have this amazing way of making everything feel lighter and happier, and I don’t think I say this enough—but I truly appreciate you. You’re not just someone I sit with in class, you’re someone who has become really important to me.
+
+On your special day, I hope you get all the happiness you deserve, because you truly deserve the best. Keep smiling, keep being your awesome self, and never change.
+
+And maybe… just maybe… today I’ll admit that my day feels a little incomplete without you sitting next to me 😉
+
+Once again, Happy Birthday, Rashad!
+
+– Your bench partner 🎂✨
+
+            <div style="margin-top: 40px; font-family: 'Orbitron';">
+                <div style="color: var(--gold); font-size: 0.6rem;">MADE WITH LOVE BY</div>
+                <div style="font-size: 1.5rem; font-weight: 900; margin-top: 5px;">AYUSH KUMAR GUPTA</div>
+            </div>
+            <button class="btn" onclick="location.reload()">Replay ↺</button>
+        </div>
+    </div>
+
+    <script>
+        let isBlown = false;
+        function blow() {
+            isBlown = true;
+            document.getElementById('cndl').classList.add('off');
+            document.getElementById('hint').innerText = 'NOW TAP THE CAKE TO CUT';
+        }
+        function cut() {
+            if(isBlown) {
+                document.getElementById('music').play();
+                setTimeout(() => next('p2'), 800);
+            }
+        }
+        function next(id) {
+            document.querySelectorAll('.glass > div').forEach(d => d.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
